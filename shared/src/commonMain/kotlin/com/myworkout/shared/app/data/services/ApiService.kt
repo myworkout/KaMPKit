@@ -10,7 +10,7 @@ interface ApiService {
 class ApiServiceImpl : ApiService {
 
     private val json: Json by lazy {
-        Json(builderAction = {})
+        Json(builderAction = { ignoreUnknownKeys = true })
     }
 
     override fun createAuthApi(): AuthApi = AuthApi(jsonSerializer = json)
