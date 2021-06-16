@@ -61,6 +61,6 @@ dependencies {
     implementation(Deps.AndroidX.lifecycle_viewmodel_extensions)
     implementation(Deps.AndroidX.lifecycle_livedata)
     implementation(Deps.AndroidX.lifecycle_extension)
-    implementation(Deps.AndroidX.koin_viewmodel)
+    implementation(Deps.AndroidX.koin_android)
     testImplementation(Deps.junit)
 }
