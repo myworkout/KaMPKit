@@ -7,7 +7,6 @@ import co.touchlab.kampkit.mock.KtorApiMock
 import co.touchlab.kampkit.models.BreedModel
 import co.touchlab.kampkit.models.DataState
 import co.touchlab.kampkit.models.ItemDataSummary
-import co.touchlab.kermit.Kermit
 import com.russhwolf.settings.MockSettings
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
@@ -26,11 +25,9 @@ import kotlin.time.seconds
 class BreedModelTest : BaseTest() {
 
     private var model: BreedModel = BreedModel()
-    private var kermit = Kermit()
     private var testDbConnection = testDbConnection()
     private var dbHelper = DatabaseHelper(
         testDbConnection,
-        kermit,
         Dispatchers.Default
     )
     private val settings = MockSettings()
@@ -53,7 +50,7 @@ class BreedModelTest : BaseTest() {
 
     @BeforeTest
     fun setup() {
-        appStart(dbHelper, settings, ktorApi, kermit, clock)
+        appStart(dbHelper, settings, ktorApi, clock)
     }
 
     @Test

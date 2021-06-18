@@ -7,9 +7,7 @@ object Versions {
     val android_gradle_plugin = "4.0.1"
 
     val buildToolsVersion = "30.0.3"
-    val cocoapodsext = "0.12"
     val coroutines = "1.4.3-native-mt"
-    val kermit = "0.1.8"
     val koin = "3.1.0"
     val ktlint_gradle_plugin = "9.4.1"
     val ktor = "1.5.2"
@@ -18,7 +16,7 @@ object Versions {
     val desugarJdkLibs = "1.1.5"
     val multiplatformSettings = "0.7.4"
     val robolectric = "4.5.1"
-    val sqlDelight = "1.4.4"
+    val sqlDelight = "1.5.0"
     val stately = "1.1.4"
     val serialization = "1.1.0"
     val kotlinxDateTime = "0.1.1"
@@ -38,11 +36,9 @@ object Versions {
 
 object Deps {
     val android_gradle_plugin = "com.android.tools.build:gradle:${Versions.android_gradle_plugin}"
-    val cocoapodsext = "co.touchlab:kotlinnativecocoapods:${Versions.cocoapodsext}"
     val junit = "junit:junit:${Versions.junit}"
     val material = "com.google.android.material:material:${Versions.material}"
     val desugarJdkLibs = "com.android.tools:desugar_jdk_libs:${Versions.desugarJdkLibs}"
-    val kermit = "co.touchlab:kermit:${Versions.kermit}"
     val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
     val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
     val multiplatformSettings = "com.russhwolf:multiplatform-settings:${Versions.multiplatformSettings}"

@@ -11,8 +11,6 @@ import shared
 
 @main
 struct MyworkoutTestAppApp: App {
-    // Lazy so it doesn't try to initialize before startKoin() is called
-    lazy var log = koin.get(objCClass: Kermit.self, parameter: "AppDelegate") as! Kermit
 
     var body: some Scene {
         WindowGroup {

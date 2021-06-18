@@ -14,7 +14,6 @@ class BreedsViewController: UIViewController {
     @IBOutlet weak var breedTableView: UITableView!
     var data: [Breed] = []
     
-    let log = koin.get(objCClass: Kermit.self, parameter: "ViewController") as! Kermit
     private let refreshControl = UIRefreshControl()
 
     lazy var adapter: NativeViewModel = NativeViewModel(
@@ -63,13 +62,11 @@ class BreedsViewController: UIViewController {
     // MARK: BreedModel Closures
     
     private func viewUpdateSuccess(for summary: ItemDataSummary) {
-        log.d(withMessage: {"View updating with \(summary.allItems.count) breeds"})
         data = summary.allItems
         breedTableView.reloadData()
     }
     
     private func errorUpdate(for errorMessage: String) {
-        log.e(withMessage: {"Displaying error: \(errorMessage)"})
         let alertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
         present(alertController, animated: true, completion: nil)
