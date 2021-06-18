@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform")
-    id("co.touchlab.native.cocoapods")
+    kotlin("native.cocoapods")
     id("kotlinx-serialization")
     id("com.android.library")
     id("com.squareup.sqldelight")
@@ -60,7 +60,6 @@ kotlin {
         implementation(Deps.koinCore)
         implementation(Deps.Ktor.commonSerialization)
         implementation(Deps.kotlinxDateTime)
-        api(Deps.kermit)
     }
 
     sourceSets["commonTest"].dependencies {
@@ -99,14 +98,10 @@ kotlin {
         implementation(Deps.Ktor.ios)
     }
 
-    cocoapodsext {
+    cocoapods {
         summary = "Common library for the KaMP starter kit"
         homepage = "https://github.com/touchlab/KaMPKit"
-        framework {
-            isStatic = false
-            export(Deps.kermit)
-            transitiveExport = true
-        }
+        frameworkName = "shared"
     }
 }
 

@@ -1,7 +1,6 @@
 package co.touchlab.kampkit
 
 import co.touchlab.kampkit.db.Breed
-import co.touchlab.kermit.Kermit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlin.test.BeforeTest
@@ -21,7 +20,6 @@ class SqlDelightTest : BaseTest() {
     fun setup() = runTest {
         dbHelper = DatabaseHelper(
             testDbConnection(),
-            Kermit(),
             Dispatchers.Default
         )
         dbHelper.deleteAll()

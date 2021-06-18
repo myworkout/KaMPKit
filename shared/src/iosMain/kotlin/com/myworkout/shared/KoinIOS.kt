@@ -1,7 +1,5 @@
 package com.myworkout.shared
 
-import co.touchlab.kermit.Kermit
-import co.touchlab.kermit.NSLogLogger
 import com.russhwolf.settings.AppleSettings
 import com.russhwolf.settings.Settings
 import kotlinx.cinterop.ObjCClass
@@ -26,8 +24,6 @@ fun initKoinIos(
 )
 
 actual val platformModule = module {
-    val baseKermit = Kermit(NSLogLogger()).withTag("Prototype")
-    factory { (tag: String?) -> if (tag != null) baseKermit.withTag(tag) else baseKermit }
 }
 
 fun Koin.get(objCClass: ObjCClass, qualifier: Qualifier?, parameter: Any): Any {
