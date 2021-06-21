@@ -10,12 +10,14 @@
 		041E937698344B8E8A19BE14 /* Pods_Prototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D035FE9361A25EDE94188 /* Pods_Prototype.framework */; };
 		FA6C0159267B7EC100184DD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C0158267B7EC100184DD3 /* AppDelegate.swift */; };
 		FA6C015B267B7EC100184DD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C015A267B7EC100184DD3 /* SceneDelegate.swift */; };
-		FA6C015D267B7EC100184DD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C015C267B7EC100184DD3 /* ViewController.swift */; };
 		FA6C0160267B7EC100184DD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6C015E267B7EC100184DD3 /* Main.storyboard */; };
 		FA6C0162267B7EC500184DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6C0161267B7EC500184DD3 /* Assets.xcassets */; };
 		FA6C0165267B7EC500184DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6C0163267B7EC500184DD3 /* LaunchScreen.storyboard */; };
 		FA6C016F267B804100184DD3 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C016E267B804100184DD3 /* AuthenticationViewController.swift */; };
 		FA6C0171267B808600184DD3 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C0170267B808600184DD3 /* AuthenticationPresenter.swift */; };
+		FA6C017C267CE15500184DD3 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C017B267CE15500184DD3 /* Koin.swift */; };
+		FA6C017E267CE50600184DD3 /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C017D267CE50600184DD3 /* Collector.swift */; };
+		FA6C0180267CF50800184DD3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6C017F267CF50800184DD3 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +27,15 @@
 		FA6C0155267B7EC100184DD3 /* Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6C0158267B7EC100184DD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA6C015A267B7EC100184DD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA6C015C267B7EC100184DD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA6C015F267B7EC100184DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA6C0161267B7EC500184DD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA6C0164267B7EC500184DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA6C0166267B7EC500184DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA6C016E267B804100184DD3 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		FA6C0170267B808600184DD3 /* AuthenticationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPresenter.swift; sourceTree = "<group>"; };
+		FA6C017B267CE15500184DD3 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
+		FA6C017D267CE50600184DD3 /* Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector.swift; sourceTree = "<group>"; };
+		FA6C017F267CF50800184DD3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6C0180267CF50800184DD3 /* libsqlite3.tbd in Frameworks */,
 				041E937698344B8E8A19BE14 /* Pods_Prototype.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +63,7 @@
 		AFFEE98159FB1387F9B1F08C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA6C017F267CF50800184DD3 /* libsqlite3.tbd */,
 				926D035FE9361A25EDE94188 /* Pods_Prototype.framework */,
 			);
 			name = Frameworks;
@@ -87,7 +93,8 @@
 				FA6C016C267B801400184DD3 /* Modules */,
 				FA6C0158267B7EC100184DD3 /* AppDelegate.swift */,
 				FA6C015A267B7EC100184DD3 /* SceneDelegate.swift */,
-				FA6C015C267B7EC100184DD3 /* ViewController.swift */,
+				FA6C017B267CE15500184DD3 /* Koin.swift */,
+				FA6C017D267CE50600184DD3 /* Collector.swift */,
 				FA6C015E267B7EC100184DD3 /* Main.storyboard */,
 				FA6C0161267B7EC500184DD3 /* Assets.xcassets */,
 				FA6C0163267B7EC500184DD3 /* LaunchScreen.storyboard */,
@@ -227,8 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6C017C267CE15500184DD3 /* Koin.swift in Sources */,
 				FA6C016F267B804100184DD3 /* AuthenticationViewController.swift in Sources */,
-				FA6C015D267B7EC100184DD3 /* ViewController.swift in Sources */,
+				FA6C017E267CE50600184DD3 /* Collector.swift in Sources */,
 				FA6C0171267B808600184DD3 /* AuthenticationPresenter.swift in Sources */,
 				FA6C0159267B7EC100184DD3 /* AppDelegate.swift in Sources */,
 				FA6C015B267B7EC100184DD3 /* SceneDelegate.swift in Sources */,

@@ -6,6 +6,7 @@ import com.myworkout.shared.app.data.services.ApiService
 import com.myworkout.shared.app.data.services.ApiServiceImpl
 import com.myworkout.shared.app.data.services.AuthenticationService
 import com.myworkout.shared.app.data.services.AuthenticationServiceImpl
+import com.myworkout.shared.app.data.services.authenticationModule
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
@@ -16,7 +17,8 @@ fun initKoin(vararg appModules: Module): KoinApplication {
         modules(
             *appModules,
             platformModule,
-            coreModule
+            coreModule,
+            authenticationModule
         )
     }
 
