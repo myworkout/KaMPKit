@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Prototype</string>
+
+    <string name="login_fragment_user_name_label">Username</string>
+    <string name="login_fragment_password_label">Password</string>
+    <string name="login_fragment_login_btn_title">Login</string>
+</resources>

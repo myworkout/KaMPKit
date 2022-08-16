@@ -3,22 +3,19 @@ package co.touchlab.kampkit.models
 import co.touchlab.kampkit.DatabaseHelper
 import co.touchlab.kampkit.db.Breed
 import co.touchlab.kampkit.ktor.KtorApi
-import co.touchlab.kermit.Kermit
 import co.touchlab.stately.ensureNeverFrozen
 import com.russhwolf.settings.Settings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.datetime.Clock
-import org.koin.core.KoinComponent
-import org.koin.core.inject
-import org.koin.core.parameter.parametersOf
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
 class BreedModel : KoinComponent {
     private val dbHelper: DatabaseHelper by inject()
     private val settings: Settings by inject()
     private val ktorApi: KtorApi by inject()
-    private val log: Kermit by inject { parametersOf("BreedModel") }
     private val clock: Clock by inject()
 
     companion object {
@@ -73,19 +70,13 @@ class BreedModel : KoinComponent {
     private fun isBreedListStale(currentTimeMS: Long): Boolean {
         val lastDownloadTimeMS = settings.getLong(DB_TIMESTAMP_KEY, 0)
         val oneHourMS = 60 * 60 * 1000
-        val stale = lastDownloadTimeMS + oneHourMS < currentTimeMS
-        if (!stale) {
-            log.i { "Breeds not fetched from network. Recently updated" }
-        }
-        return stale
+        return lastDownloadTimeMS + oneHourMS < currentTimeMS
     }
 
     suspend fun getBreedsFromNetwork(currentTimeMS: Long): DataState<ItemDataSummary> {
         return try {
             val breedResult = ktorApi.getJsonFromApi()
-            log.v { "Breed network result: ${breedResult.status}" }
             val breedList = breedResult.message.keys.sorted().toList()
-            log.v { "Fetched ${breedList.size} breeds from network" }
             settings.putLong(DB_TIMESTAMP_KEY, currentTimeMS)
             if (breedList.isEmpty()) {
                 DataState.Empty
@@ -98,7 +89,6 @@ class BreedModel : KoinComponent {
                 )
             }
         } catch (e: Exception) {
-            log.e(e) { "Error downloading breed list" }
             DataState.Error("Unable to download breed list")
         }
     }
